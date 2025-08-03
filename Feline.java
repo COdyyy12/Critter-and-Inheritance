@@ -41,15 +41,4 @@ public class Feline extends Critter {
     public Color getColor() {
         return Color.MAGENTA;
     }
-
-    private Direction getRandomDirection() {
-        Direction[] options = {
-            Direction.NORTH,
-            Direction.SOUTH,
-            Direction.EAST,
-            Direction.WEST
-        };
-        int i = random.nextInt(options.length);
-        return options[i];
-    }
 }
