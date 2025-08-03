@@ -11,24 +11,23 @@ public class Turtle extends Critter {
         return Direction.WEST;
     }
 
-     public boolean eat() {
-        String neighborNorth = info.getNeighbor(Direction.NORTH);
-        if (neighborNorth != null && !neighborNorth.equals(SPECIES_NAME) && !neighborNorth.equals("%")) {
-            return false;
-        }
-        String neighborSouth = info.getNeighbor(Direction.SOUTH);
-        if (neighborSouth != null && !neighborSouth.equals(SPECIES_NAME) && !neighborSouth.equals("%")) {
-            return false;
-        }
-        String neighborEast = info.getNeighbor(Direction.EAST);
-        if (neighborEast != null && !neighborEast.equals(SPECIES_NAME) && !neighborEast.equals("%")) {
-            return false;
-        }
-        String neighborWest = info.getNeighbor(Direction.WEST);
-        if (neighborWest != null && !neighborWest.equals(SPECIES_NAME) && !neighborWest.equals("%")) {
-            return false;
-        }
-        return true;
+    neighbor = info.getNeighbor(Direction.NORTH);
+    if (neighbor != null && neighbor.length()>0&& !neighbor.equals(SPECIES_NAME) && !neighbor.equals(".")) {
+        return false;
+    }
+    neighbor = info.getNeighbor(Direction.SOUTH);
+    if (neighbor != null && neighbor.length()>0&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
+        return false;
+    }
+
+    neighbor = info.getNeighbor(Direction.EAST);
+    if (neighbor != null && neighbor.length()>0&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
+        return false;
+    }
+    
+    neighbor = info.getNeighbor(Direction.WEST);
+    if (neighbor != null && neighbor.length()>0&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
+        return false;
     }
 
     public Attack getAttack(String opponent) {
