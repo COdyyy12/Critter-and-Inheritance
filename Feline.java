@@ -7,21 +7,20 @@ public class Feline extends Critter {
 
     public Feline() {
         super("Fe");
-        moveCount = 0;
+        moveCount = 5;       
         eatCount = 0;
-        currDir = getRandomDirection();
+        currDir = Direction.CENTER;
     }
-
     @Override
     public Direction getMove() {
         if (moveCount >= 5) {
-            currDir = getRandomDirection();
+            Direction[] options = {Direction.NORTH, Direction.SOUTH,Direction.EAST,Direction.WEST};
+            currDir = options[random.nextInt(options.length)];
             moveCount = 0;
         }
         moveCount++;
         return currDir;
     }
-
     @Override
     public boolean eat() {
         eatCount++;
@@ -31,12 +30,9 @@ public class Feline extends Critter {
         }
         return false;
     }
-
-    @Override
     public Attack getAttack(String opponent) {
         return Attack.POUNCE;
     }
-
     @Override
     public Color getColor() {
         return Color.MAGENTA;
