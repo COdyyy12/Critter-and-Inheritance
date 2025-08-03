@@ -10,26 +10,28 @@ public class Turtle extends Critter {
     public Direction getMove() {
         return Direction.WEST;
     }
-    public boolean eat() {
-        String neighbor;
-        neighbor = info.getNeighbor(Direction.NORTH);
-        if (neighbor != null && neighbor.length() > 0&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
-            return false;
-        }
-        neighbor = info.getNeighbor(Direction.SOUTH);
-        if (neighbor != null && neighbor.length() > 0&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
-            return false;
-        }
-        neighbor = info.getNeighbor(Direction.EAST);
-        if (neighbor != null && neighbor.length() > 0&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
-            return false;
-        }
-        neighbor = info.getNeighbor(Direction.WEST);
-        if (neighbor != null && neighbor.length() > 0 && !neighbor.equals(SPECIES_NAME) && !neighbor.equals(".")) {
-            return false;
-        }
-        return true;
+   @Override
+public boolean eat() {
+    String neighbor;
+
+    neighbor = info.getNeighbor(Direction.NORTH);
+    if (neighbor != null && !neighbor.trim().isEmpty()&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
+        return false;
     }
+    neighbor = info.getNeighbor(Direction.SOUTH);
+    if (neighbor != null && !neighbor.trim().isEmpty() && !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
+        return false;
+    }
+    neighbor = info.getNeighbor(Direction.EAST);
+    if (neighbor != null && !neighbor.trim().isEmpty()&& !neighbor.equals(SPECIES_NAME)&& !neighbor.equals(".")) {
+        return false;
+    }
+    neighbor = info.getNeighbor(Direction.WEST);
+    if (neighbor != null && !neighbor.trim().isEmpty()&& !neighbor.equals(SPECIES_NAME) && !neighbor.equals(".")) {
+        return false;
+    }
+    return true;
+}
 
     @Override
     public Attack getAttack(String opponent) {
