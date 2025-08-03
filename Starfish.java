@@ -13,14 +13,6 @@ public class Starfish extends Critter {
     public Direction getMove() {
         return Direction.CENTER;
     }
-   
-    public boolean eat() {
-        return false;
-    }
-
-    public Attack getAttack(String opponent) {
-        return Attack.FORFEIT;
-    }
 
     public Color getColor() {
         return Color.PINK;
